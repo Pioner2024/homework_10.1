@@ -5,7 +5,7 @@ from masks import get_mask_account
 def mask_account_card(card_number: str) -> str:
     """Обрабатывает данные карты и счета."""
     masked_number = get_mask_card_number(card_number)
-    part_of_the_map = []
+    part_of_the_map: list[str] = []
 
     # Отделяем слова от цифр.
     for character in card_number:
@@ -24,23 +24,19 @@ def mask_account_card(card_number: str) -> str:
 
 
 # Получение ввода номера карты
-card_number = str(input("Введите номер карты: "))
+card_number = input("Введите номер карты: ")
 print(mask_account_card(card_number))
 
 # Получение ввода номера счёта
-account_number = str(input("Введите номер счёта: "))
+account_number = input("Введите номер счёта: ")
 account_mask = get_mask_account(account_number)
 print(account_mask)
 
 
 def get_date(correct: str) -> str:
-    """Возвращает строку с датой в формате "ДД.ММ.ГГГГ"."""
+    """Возвращает строку с датой в формате 'ДД.ММ.ГГГГ'."""
     year = correct[2:4]
     month = correct[5:7]
     day = correct[8:10]
-    # Получаем дату в формате "ДД.ММ.ГГГГ"
+    # Получаем дату в формате 'ДД.ММ.ГГГГ'
     return f"{day}.{month}.{year}"
-
-
-dete = "2024-03-11T02:26:18.671407"
-print(get_date(dete))
